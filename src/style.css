@@ -1,0 +1,186 @@
+body {
+  margin: 0;
+  background: white;
+  color: black;
+  font-family: Arial, sans-serif;
+}
+
+#app {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1 {
+  margin: 0 0 24px;
+}
+
+h2 {
+  margin: 0 0 14px;
+  font-size: 20px;
+}
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 390px 250px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.design-controls,
+.colour-controls,
+.preview-controls {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 16px;
+  background: #fafafa;
+}
+
+#design-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.design-option {
+  padding: 6px;
+  border: 1px solid #bbb;
+  border-radius: 7px;
+  background: white;
+  color: black;
+  cursor: pointer;
+}
+
+.design-option.selected {
+  box-shadow:
+    0 0 0 2px white,
+    0 0 0 4px black;
+}
+
+.design-thumbnail {
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.design-thumbnail svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.design-thumbnail #outline {
+  fill: black;
+}
+
+.design-label {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.colour-tabs {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid #ccc;
+}
+
+.tab-button {
+  position: relative;
+  padding: 0 2px 10px;
+  border: 0;
+  background: transparent;
+  color: #777;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tab-button::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 3px;
+  border-radius: 3px;
+  background: transparent;
+}
+
+.tab-button.active {
+  color: black;
+}
+
+.tab-button.active::after {
+  background: black;
+}
+
+#colour-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  padding: 4px;
+}
+
+.colour-option {
+  height: 32px;
+  padding: 0 6px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
+.colour-option.selected {
+  box-shadow:
+    0 0 0 2px white,
+    0 0 0 4px black;
+}
+
+.preview-controls {
+  position: sticky;
+  top: 24px;
+}
+
+#preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+#lid-background,
+#lid-art {
+  position: absolute;
+  inset: 0;
+}
+
+#lid-background {
+  background: white;
+}
+
+#lid-art {
+  z-index: 1;
+}
+
+#lid-art svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 1100px) {
+  .app-layout {
+    grid-template-columns: 390px 250px;
+  }
+
+  .preview-controls {
+    position: relative;
+    grid-column: 1 / -1;
+  }
+}
